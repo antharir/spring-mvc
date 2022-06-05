@@ -10,7 +10,7 @@
 
     <p><font color="red">${errorMessage}</font></p>
 
-	<form action="/login.do" method="post">
+	<form action="/spring-mvc/login" method="post">
 
 		<input type="text" name="username"> <input type="password"
 			name="password">
