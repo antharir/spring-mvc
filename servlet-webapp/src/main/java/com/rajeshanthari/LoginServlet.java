@@ -1,4 +1,4 @@
-package webapp;
+package com.rajeshanthari;
 
 import java.io.IOException;
 
@@ -31,6 +31,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
+	private LoginService service = new LoginService();
+
 	/**
 	 * 
 	 */
@@ -45,11 +47,18 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
+		boolean validateUser = service.validateUser(userName, password);
 		request.setAttribute("name", userName);
-		request.setAttribute("password", password);
-		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+		if (validateUser) {
+			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+		} else {
+			request.setAttribute("errorMessage", "Invalid creds");
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+		}
+
 	}
 
 }

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <p><font color="red">${errorMessage}</font></p>
+
 	<form action="/login.do" method="post">
 
 		<input type="text" name="username"> <input type="password"
