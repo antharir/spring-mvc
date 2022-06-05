@@ -8,9 +8,11 @@
 </head>
 <body>
 
-    <p><font color="red">${errorMessage}</font></p>
+	<p>
+		<font color="red">${errorMessage}</font>
+	</p>
 
-	<form action="/spring-mvc/login" method="post">
+	<form action="/login" method="post">
 
 		<input type="text" name="username"> <input type="password"
 			name="password">
