@@ -44,7 +44,8 @@ public class TodoController {
 		Todo value = new Todo();
 		value.setDesc("Default Val");
 		model.put("todo", value);
-		return "add-todo";
+		throw new RuntimeException("Dummy");
+		//return "add-todo";
 	}
 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
